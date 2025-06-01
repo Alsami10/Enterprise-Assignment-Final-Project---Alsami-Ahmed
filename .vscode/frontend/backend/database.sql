@@ -5,7 +5,7 @@ Create Table Doctors (
      doctor_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     Speciality VARCHAR(50) NOT NULL,
-    Availability TEXT NOT NULL
+    Availability_schedule JSON TEXT NOT NULL
 
 );
 Create Table Appointments (
