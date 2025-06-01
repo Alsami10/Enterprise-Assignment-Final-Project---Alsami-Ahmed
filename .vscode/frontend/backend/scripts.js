@@ -13,16 +13,14 @@ document.getElementById("speciality").addEventListener("change", function() {
         "Pediatrics": ["Dr. Johnson", "Dr. Lee"]
     };
 
-    // add relevant doctors based on specilaity selection 
-    if (doctorDATA [speciality])) {
-
-            doctordata[speciality].foreach((doctor, index)) {
-                let option = index + 1; // simulating doctor_id
-                option.value = index + 1; //simulating doctor_id
-                option.textcontent = doctor;
+        // add relevant doctors based on speciality selection 
+        if (doctordata[speciality]) {
+            doctordata[speciality].forEach((doctor, index) => {
+                let option = document.createElement("option");
+                option.value = index + 1; // simulating doctor_id
+                option.textContent = doctor;
                 doctorDropdown.appendChild(option);
             });
-            
-            }
         }
-    }
+    });
+    
