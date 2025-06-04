@@ -42,6 +42,10 @@ public class AppointmentScheduler {
     }
 }
 
+    connection con = drivemanager.getConnection("jdbc:mysql://localhost:330
+    PreparedStatement ps = con.preparestatement("INSERT INTO USERS (name) VA
+    ps.setString(1, "John Doe");
+    ps.executeUpdate();
     
 
 

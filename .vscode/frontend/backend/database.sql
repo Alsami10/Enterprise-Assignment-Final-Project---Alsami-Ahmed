@@ -20,7 +20,7 @@ Create Table Appointments (
 
 select @@secure_file_priv;
 
-Load DATA INFILE '/path/to/Doctors_dataset.csv'
+Load DATA INFILE '/path/to/Doctors_dataset.csv' 
 INTO TABLE Doctors
 Fields Terminated By ','
 Enclosed By '"'

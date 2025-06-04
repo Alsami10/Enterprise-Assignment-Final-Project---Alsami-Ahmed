@@ -5,6 +5,11 @@
             <title>Doctor Appointment Booing</title>
             <link rel ="stylesheet" href="styles.css">
             <script defer src="scripts.js"></script>
+            <script>
+                fetch('/getusers')
+                .then(response => response.json())
+                .then(data => console.log(data));
+            </script>
         </head></head>
         <body>
             <h2>Book an Appointment</h2>
@@ -37,8 +42,20 @@
                 <button type="submit">Book Appointment</button>
             </form>
             <footer>
-                <p>&copy; AA 2025 Top Doctors Appointment Booking System</p>
+                <p>&copy; AA 2025 Top Doctors Appointment Booking System and data visualisation</p>
             </title></title>
+            <canvas id="mtchart"></canvas>
+            <Script>
+             fetch('appointment.csv') // Load Excel data as csv
+             .then(response=> response.text())
+             .then(data => {
+                const chartdata = processCSV(data); // Convert CSV to usable format
+                new chart(document.getElementById('Mychart'), {
+                    type: 'bar',
+                    data: chartdata
+                });
+            });
+            </script></Script>
         </head>
     </html>
 </doctype>
