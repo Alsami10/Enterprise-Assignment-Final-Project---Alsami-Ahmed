@@ -29,3 +29,8 @@ Ignore 1 Rows;
 
 Select * from Doctors where Speciality = 'Cardiologist';
 
+create table settings (
+    id INT Primary Key,
+    config JSON
+);
+Insert INTO settings (id, config) VALUES (1, '{"server": "localhost", "port": 8080}');

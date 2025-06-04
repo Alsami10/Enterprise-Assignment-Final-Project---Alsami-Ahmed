@@ -24,3 +24,11 @@ document.getElementById("speciality").addEventListener("change", function() {
         }
     });
     
+    fetch('http://localhost:8080/api/users')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('error:', error));
+
+    fetch('config.json')
+    .then(response => response.json())
+    .then(data => console.log(data.config.server));

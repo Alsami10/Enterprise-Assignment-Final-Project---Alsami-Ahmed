@@ -1,0 +1,27 @@
+{
+    "config": {
+        "server": "localhost",
+        "port": 8080,
+        "database" : "my_db",
+        "username": "mfhs",
+        "password": "alsami"
+
+    },
+    "users": [
+        {
+            "id": 1,
+            "name": "Alsami",
+            "email": "alsami.ahmed@education.nsw.gov.au",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "name": "Alsami",
+            "email": "alsami.ahmed@education.nsw.gov.au",
+            "role": "user"
+        }
+    ],
+    "configurations": [
+    
+    ]
+}
