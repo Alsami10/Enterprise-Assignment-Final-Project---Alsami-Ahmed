@@ -2,18 +2,27 @@
     <html lang="en">
         <head>
             <meta charset="UTF-8">
-            <title>Doctor Appointment Booing</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Excel Dashboard and Booking System</title>
+            <script src="https://cdnjs.cloudfare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+            <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+            <script src="scripts.js" defer></script>
             <link rel ="stylesheet" href="styles.css">
             <script defer src="scripts.js"></script>
+            <input type="file" id="uploadExcel">
             <script>
                 fetch('/getusers')
                 .then(response => response.json())
                 .then(data => console.log(data));
             </script>
-        </head></head>
+        <img src="Main.png.png" alt=Doctor and patient at an appointment dashboard with interactive charts and graphs showing appointment data, visible text includes AA Appointment System and Book an Appointment, modern professional and welcoming design, environment is inviting and user friendly>
         <body>
+           <div id="visualisation">
+            <canvas id="excelChart"></canvas>
+           </div> 
+           <div id="appointment">
             <h2>Book an Appointment</h2>
-            <form action = "processBooking.jsp" methid="POST">
+            <form id = "scripts.js" method="POST">
                 <label for="Name">Name:</label>
                 <input type="text" id="Name" name="customer_Name" required>
                 
@@ -25,37 +34,35 @@
                     <option value="Pediatrics">Pediatrics</option>
                     <option value="Psychiatry">Psychiatry</option>
                     <option value="Radiology">Radiology</option>
-                </SELECT>
+                <select>
 
                 <label for="doctor">Select Doctor:</label>
                 <select id="doctor" name="doctor" required>
                     <option value="Dr. Smith">Dr. Smith</option>
 
                     </select>
-
                 <label for="date">Date:</label>
                 <input type="date" id="date" name="appointment_date" required>
-                
+    
                 <label for ="time">Time:</label>
                 <input type="time" id="time" name="appointment_time" required>
-
-                <button type="submit">Book Appointment</button>
+                <button action="/book" type="submit">Book Appointment</button>
             </form>
+             </div>
             <footer>
                 <p>&copy; AA 2025 Top Doctors Appointment Booking System and data visualisation</p>
-            </title></title>
-            <canvas id="mtchart"></canvas>
-            <Script>
+            <canvas id="Mychart"></canvas>
+            <script>
              fetch('appointment.csv') // Load Excel data as csv
              .then(response=> response.text())
              .then(data => {
                 const chartdata = processCSV(data); // Convert CSV to usable format
-                new chart(document.getElementById('Mychart'), {
+                new Chart(document.getElementById('Mychart'), {
                     type: 'bar',
                     data: chartdata
                 });
             });
-            </script></Script>
+            </script>
         </head>
     </html>
 </doctype>

@@ -9,7 +9,7 @@ public class AppointmentScheduler {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             System.out.println("Connected to the database successfully!");
 
-            // Retrieve doctors by speciality
+          
             String speciality = "Cardiologist";
             String fetchDoctorsSQL = "SELECT * FROM Doctors WHERE speciality = ?";
             try (PreparedStatement stmt = conn.prepareStatement(fetchDoctorsSQL)) {
@@ -23,7 +23,6 @@ public class AppointmentScheduler {
                 }
             }
 
-            // Sample appointment booking 
             String sql = "INSERT INTO Appointments (customer_name, appointment_date, appointment_time, doctor_id) VALUES (?, ?, ?, ?)";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, "Zawad Arefin");
