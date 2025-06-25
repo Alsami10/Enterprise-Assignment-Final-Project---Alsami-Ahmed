@@ -1,24 +1,51 @@
 <doctype html>
     <html lang="en">
         <head>
+            <img src="Main.png.png" alt=Doctor and patient at an appointment dashboard with interactive charts and graphs showing appointment data, visible text includes AA Appointment System and Book an Appointment, modern professional and welcoming design, environment is inviting and user friendly>
+            <meta name="description" content="AA Appointment System - Book your appointment with top doctors and view interactive charts and graphs of appointment data.">
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Excel Dashboard and Booking System</title>
-            <script src="https://cdnjs.cloudfare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-            <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    
             <script src="scripts.js" defer></script>
             <link rel ="stylesheet" href="styles.css">
             <script defer src="scripts.js"></script>
-            <input type="file" id="uploadExcel">
             <script>
                 fetch('/getusers')
                 .then(response => response.json())
                 .then(data => console.log(data));
-            </script>
-        <img src="Main.png.png" alt=Doctor and patient at an appointment dashboard with interactive charts and graphs showing appointment data, visible text includes AA Appointment System and Book an Appointment, modern professional and welcoming design, environment is inviting and user friendly>
+                  <title> Google Sheets Chart</title>
+    </script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> </script></script>
+      <script> type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/https://docs.google.com/spreadsheets/d/e/2PACX-1vTjiMu9XPSXZkKXFY05wayb-IkyuyN9lNER4L1Uz1q3vmiEAAiM6WMzLZ8_Sb5kSZOUiEmvZ-tffTcr/pubhtml?gid=1646428372&single=true/gviz/tq?gid=0');
+    query.send(handleQueryResponse);
+}
+
+function handleQueryResponse(response) {
+    var data = response.getDataTable();
+    var options = {
+        title: 'Appointemtn data visualisation charts',
+        hAxis: {title: 'X-axis'},
+        vAxis: {title: 'Y-axis'},
+        legend: { position: 'bottom' }
+    };
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+    charts.draw(data, options);
+}
+
+      </script>
+      </head>
         <body>
+            <h2>Live Charts</h2>
+            <div id="chart_div" style="width:900px; height: 500px;"></div>
+            </body>
            <div id="visualisation">
-            <canvas id="excelChart"></canvas>
+            <iframe src = "Appointment.csv.xlsx" width="800" height="600"></iframe>
+            <canvas id="Appointment.csv.xlsx"></canvas>
            </div> 
            <div id="appointment">
             <h2>Book an Appointment</h2>
@@ -47,6 +74,7 @@
                 <label for ="time">Time:</label>
                 <input type="time" id="time" name="appointment_time" required>
                 <button action="/book" type="submit">Book Appointment</button>
+        
             </form>
              </div>
             <footer>

@@ -2,25 +2,22 @@ document.getElementById("speciality").addEventListener("change", function() {
     let speciality = this.value;
     let doctorDropdown = document.getElementById("doctor");
 
-
-    doctorDropdown.innerHTML = "";
-
   
     let doctordata =
     {
         "Cardiology": ["Dr. Smith", "Dr. Jones"],
         "Neurology": ["Dr. Brown", "Dr. Taylor"],
-        "Pediatrics": ["Dr. Johnson", "Dr. Lee"]
+        "Pediatrics": ["Dr. Johnson", "Dr. Lee"],
     };
 
-        
+    doctorDropdown.innerHTML=""; 
         if (doctordata[speciality]) {
-            doctordata[speciality].forEach((doctor, index) => {
+            doctordata[speciality].forEach(doctor => {
                 let option = document.createElement("option");
-                option.value = index + 1; 
+                option.value = doctor; 
                 option.textContent = doctor;
-                    doctorDropdown.appendChild(option);
-                });
+                doctorDropdown.appendChild(option);
+            });
             }
     });
 
@@ -28,12 +25,12 @@ document.getElementById("submit").addEventListener("click", function() {
     document.getElementById("appointmentForm").submit(); 
 });
 
-fetch('http://localhost:8080/api/users')
+fetch('http://localhost:5050/api/users')
 .then(response => response.json())
 .then(data => console.log(data))
-.catch(error => console.error('error:', error));
+.catch(error => console.error("error:", error));
 
-fetch('config.json')
+fetch("config.json")
 .then(response => response.json())
 .then(data => console.log(data.config.server));
 
@@ -43,30 +40,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //Load Excel file and parse data 
 async function fetchExcelData() {
-    const response = await fetch('appointment.csv.xlsx');
+    try {
+    const response = await fetch("Appointment.csv.xlsx");
     const arrayBuffer = await response.arrayBuffer();
-    const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+    const workbook = XLSX.read(arrayBuffer, { type: "array" });
     const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-    const data = XLSX.utils.sheet_to_json(firstSheet);
+const data = XLSX.utils.sheet_to_json(firstSheet);
 
-    //Convert data for chart.js
-    const labels = data.map(entry => entry.date);
-    const values = data.map(entry => entry.Appointments);
+//Convert data for chart.js
+const labels = data.map(entry => entry.date);
+const values = data.map(entry => entry.Appointments);
 
-    const ctx = document.getElementById('ExcelChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Appointments',
-                data: values,
-                borderColor: "blue",
-                fill: false
-            }]
-        }
-    });
+const ctx = document.getElementById("ExcelChart").getContext("2d");
+new Chart(ctx, {
+    type: "line",
+    data: {
+        labels: labels,
+        datasets: 
+        [{
+            label: "Appointments",
+            data: values,
+            borderColor: "blue",
+            fill: false,
+        }]
+    }
+});
+} catch(error) {
+    console.error("Error fetching or processing Excel data:", error);
 }
+}
+
 // Function to handle form submission
 function setupForm() {
         document.getElementById("appointmentForm").addEventListener("submit", function(event) {
@@ -75,12 +78,12 @@ function setupForm() {
         const date = document.getElementById("date").value;
         
         if (!date) {
-            alert("pease select a date.");
+            alert("please select a date.");
             return;
         }
 
     //send data to backend
-    fetch("/sumitappointment",{
+    fetch("/submitappointment",{
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({ doctor, date })
@@ -102,15 +105,15 @@ function setupForm() {
 
     db.run ("CREATE TABLE IF NOT EXISTS appointments ( id INTEGER PRIMARY KEY, doctor TEXT. date TEXT)");
 
-    APP.POST("/submitappointment", (req, res) => {
+    app.post("/submitappointment", (req, res) => {
         const { doctor, date } = req.body;
         db.run("Insert INTO appointments (doctor, date) VALUES (?, ?)", [doctor, date], function(err) {
          if (err) return res.status(500).json({ message: " Failed to book appointment"});
-         res.json({ message: 'Booked with ${doctor} on ${date}' });
+         res.json({ message: "Booked with ${doctor} on ${date}" });
         });
 
         });
-        app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
+        app.listen(port, () => console.log("Server running at http://localhost:${port}"));
     
     
     // Call setupForm to initialize form submission handling
@@ -137,7 +140,7 @@ document.getElementById("uploadExcel").addEventListener("change", function(event
 const labels = jsonData.map(entry => entry.date);
 const values = jsonData.map(entry => entry.Appointments);
 
-const ctx = document.getElementById('ExcelChart').getContext('2d');
+const ctx = document.getElementById("ExcelChart").getContext("2d");
 new Chart(ctx, {
     type: "line",
     data: {
