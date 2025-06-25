@@ -15,34 +15,31 @@
                 .then(response => response.json())
                 .then(data => console.log(data));
                   <title> Google Sheets Chart</title>
-    </script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> </script></script>
-      <script> type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-function drawChart() {
-    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/https://docs.google.com/spreadsheets/d/e/2PACX-1vTjiMu9XPSXZkKXFY05wayb-IkyuyN9lNER4L1Uz1q3vmiEAAiM6WMzLZ8_Sb5kSZOUiEmvZ-tffTcr/pubhtml?gid=1646428372&single=true/gviz/tq?gid=0');
-    query.send(handleQueryResponse);
-}
+                  src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-function handleQueryResponse(response) {
-    var data = response.getDataTable();
-    var options = {
-        title: 'Appointemtn data visualisation charts',
-        hAxis: {title: 'X-axis'},
-        vAxis: {title: 'Y-axis'},
-        legend: { position: 'bottom' }
-    };
-    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-    charts.draw(data, options);
+                  
+<script src ="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="chart_div" style="width: 600px; height: 400px;"></div>
+ <script> 
+ google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+    const query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7/edit?usp=sharing');
+    query.send(function(response) {
+        const data = response.getDataTable();
+        const chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, {title: 'Appointment Data', curveType: 'function', legend: { position: 'bottom' }});
+    });
 }
+</script>
 
       </script>
-      </head>
+
+
         <body>
-            <h2>Live Charts</h2>
-            <div id="chart_div" style="width:900px; height: 500px;"></div>
-            </body>
            <div id="visualisation">
             <iframe src = "Appointment.csv.xlsx" width="800" height="600"></iframe>
             <canvas id="Appointment.csv.xlsx"></canvas>
@@ -92,5 +89,7 @@ function handleQueryResponse(response) {
             });
             </script>
         </head>
+    </body> 
+        </html>
     </html>
 </doctype>
