@@ -1,95 +1,75 @@
-<doctype html>
-    <html lang="en">
-        <head>
-            <img src="Main.png.png" alt=Doctor and patient at an appointment dashboard with interactive charts and graphs showing appointment data, visible text includes AA Appointment System and Book an Appointment, modern professional and welcoming design, environment is inviting and user friendly>
-            <meta name="description" content="AA Appointment System - Book your appointment with top doctors and view interactive charts and graphs of appointment data.">
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Excel Dashboard and Booking System</title>
-    
-            <script src="scripts.js" defer></script>
-            <link rel ="stylesheet" href="styles.css">
-            <script defer src="scripts.js"></script>
-            <script>
-                fetch('/getusers')
-                .then(response => response.json())
-                .then(data => console.log(data));
-                  <title> Google Sheets Chart</title>
-                  src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                  
-<script src ="https://www.gstatic.com/charts/loader.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1> AA 2025 Top Doctors Appointment Booking System and data visualisation</h1>
+    <meta name="description" content="AA Appointment System - Book your appointment with top doctors and view interactive charts and graphs of appointment data.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Dashboard and Booking System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        fetch('/getusers')
+            .then(response => response.json())
+            .then(data => console.log(data));
+    </script>
 </head>
 <body>
-    <div id="chart_div" style="width: 600px; height: 400px;"></div>
- <script> 
- google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+    <iframe width="610" height="302" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTjiMu9XPSXZkKXFY05wayb-IkyuyN9lNER4L1Uz1q3vmiEAAiM6WMzLZ8_Sb5kSZOUiEmvZ-tffTcr/pubchart?oid=1886482181&amp;format=interactive"></iframe>
+    <h1>Data Visualisation</h1>
+    <p>Bar chart shows MD with 58 units, Nusrse with 29 units, Psychologist with 12 units, all copared with the grand total being 99 units.</p>
+    <iframe width="620" height="303" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTjiMu9XPSXZkKXFY05wayb-IkyuyN9lNER4L1Uz1q3vmiEAAiM6WMzLZ8_Sb5kSZOUiEmvZ-tffTcr/pubchart?oid=1913241210&amp;format=interactive"></iframe>
+    <h1>Data Visualisation</h1>
+    <p>The line chart shows the MD at 58 dipping to Nurse 29 then down to 10 and finally showing the total 99 units</p>
+    <iframe width="411" height="302" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTjiMu9XPSXZkKXFY05wayb-IkyuyN9lNER4L1Uz1q3vmiEAAiM6WMzLZ8_Sb5kSZOUiEmvZ-tffTcr/pubchart?oid=2116086698&amp;format=interactive"></iframe>
+    <h1>Data Visualisation</h1>
+    <p>Data Shows a Pie chart showing the different proportions of different roles such as medical doctors(md), nurse, psychologist and the grand total. The analysis of the visual representation shows that MDs and Nurses occuppy the largest proportion than psychlolgists as a whole </p>
+    <iframe width="416" height="303" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTjiMu9XPSXZkKXFY05wayb-IkyuyN9lNER4L1Uz1q3vmiEAAiM6WMzLZ8_Sb5kSZOUiEmvZ-tffTcr/pubchart?oid=1760552788&amp;format=interactive"></iframe>
+    <h1>Data Visualisation</h1>
+    <p>The Bar graph shows the the spread of data numerically and shows that the grand total is the longets bar and shows the sum of roles. Among them inlcude the MD having a longer bar than nurse and psychologist follwed by Nurse followed by MD, with the psychologist having the smallest representation</p>
 
-function drawChart() {
-    const query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7/edit?usp=sharing');
-    query.send(function(response) {
-        const data = response.getDataTable();
-        const chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        chart.draw(data, {title: 'Appointment Data', curveType: 'function', legend: { position: 'bottom' }});
-    });
-}
-</script>
+        <h2>Now, What are you waiting for! Book an Appointment!</h2>
+        <form id="appointmentForm" method="POST" action="/book">
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="customer_Name" required>
+            
+            <label for="specialty">Select specialty:</label>
+            <select id="specialty" name="specialty" required>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Psychiatry">Psychiatry</option>
+                <option value="Radiology">Radiology</option>
+            </select>
 
-      </script>
+            <label for="doctor">Select Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="Dr. Smith">Dr. Smith</option>
+            </select>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="appointment_date" required>
 
-
-        <body>
-           <div id="visualisation">
-            <iframe src = "Appointment.csv.xlsx" width="800" height="600"></iframe>
-            <canvas id="Appointment.csv.xlsx"></canvas>
-           </div> 
-           <div id="appointment">
-            <h2>Book an Appointment</h2>
-            <form id = "scripts.js" method="POST">
-                <label for="Name">Name:</label>
-                <input type="text" id="Name" name="customer_Name" required>
-                
-                <label for="specialty">select specialty:</label>
-                <select id="specialty" name="specialty" required>
-                    <option value="Cardiology">Cardiology</option>
-                    <option value="Dermatology">Dermatology</option>
-                    <option value="Neurology">Neurology</option>
-                    <option value="Pediatrics">Pediatrics</option>
-                    <option value="Psychiatry">Psychiatry</option>
-                    <option value="Radiology">Radiology</option>
-                <select>
-
-                <label for="doctor">Select Doctor:</label>
-                <select id="doctor" name="doctor" required>
-                    <option value="Dr. Smith">Dr. Smith</option>
-
-                    </select>
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="appointment_date" required>
-    
-                <label for ="time">Time:</label>
-                <input type="time" id="time" name="appointment_time" required>
-                <button action="/book" type="submit">Book Appointment</button>
-        
-            </form>
-             </div>
-            <footer>
-                <p>&copy; AA 2025 Top Doctors Appointment Booking System and data visualisation</p>
-            <canvas id="Mychart"></canvas>
-            <script>
-             fetch('appointment.csv') // Load Excel data as csv
-             .then(response=> response.text())
-             .then(data => {
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="appointment_time" required>
+            <button type="submit" onclick="window.location.href='redirect.html'">Book Appointment</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; AA 2025 Top Doctors Appointment Booking System and data visualisation</p>
+        <canvas id="Mychart"></canvas>
+    </footer>
+    <script>
+        fetch('appointment.csv') // Load Excel data as csv
+            .then(response => response.text())
+            .then(data => {
                 const chartdata = processCSV(data); // Convert CSV to usable format
                 new Chart(document.getElementById('Mychart'), {
                     type: 'bar',
                     data: chartdata
                 });
             });
-            </script>
-        </head>
-    </body> 
-        </html>
-    </html>
-</doctype>
+    </script>
+</body>
+</html>
