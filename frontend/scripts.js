@@ -5,7 +5,7 @@ document.getElementById("speciality").addEventListener("change", function() {
     //Clear current doctor options 
     doctorDropdown.innerHTML = "";
 
-    //Sample doctor database ()
+    //doctor database ()
     let doctordata =
     {
         "Cardiology": ["Dr. Smith", "Dr. Jones"],

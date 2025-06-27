@@ -23,10 +23,10 @@ public class AppointmentScheduler {
                 }
             }
 
-            // Sample appointment booking 
+            // appointment booking 
             String sql = "INSERT INTO Appointments (customer_name, appointment_date, appointment_time, doctor_id) VALUES (?, ?, ?, ?)";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setString(1, "Zawad Arefin");
+                stmt.setString(1, "John Doe");
                 stmt.setDate(2, Date.valueOf("2025-06-01"));
                 stmt.setTime(3, Time.valueOf("14:00:00"));
                 stmt.setInt(4, 1); // Doctor ID from Speciality Selection

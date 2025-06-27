@@ -20,7 +20,7 @@ Create Table Appointments (
 
 select @@secure_file_priv;
 
-Load DATA INFILE '/path/to/Doctors_dataset.csv'
+Load DATA INFILE '/path/to/AppointmentSchedulingCleanedData.csv'
 INTO TABLE Doctors
 Fields Terminated By ','
 Enclosed By '"'
@@ -29,3 +29,4 @@ Ignore 1 Rows;
 
 Select * from Doctors where Speciality = 'Cardiologist';
 
+mysql -u root -p < /path/to/'AppointmentSchedulingCleanedData.csv'
