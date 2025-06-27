@@ -1,14 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family:  sans-serif;
     margin: 50px;
-    text-align: center;
+    text-align: left;
 
 }
 
 form {
     display: inline-block;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     background-color: #f9f9f9;
 
 }
@@ -29,3 +29,174 @@ Button {
     cursor: pointer;
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.navbar {
+    height: 100px;
+    background-color: #3adee4;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.navbar .container .logo {
+    width: 15%; 
+}
+
+.navbar .container .logo img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.navbar .container .links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .container .links li {
+    list-style: none;
+}
+
+.navbar .container .links li a {
+    text-decoration: none;
+    font-size: 17px;
+    padding: 0 10px;
+    color: #3d2514;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: "Bebas Neue", Sans-serif;
+    letter-spacing: 2.6px;
+    transition: color .3s ease-in-out;
+}
+
+.navbar .container .links li a:hover {
+    color: #f76c09;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    padding-top: 60px;
+}
+
+.hero .container .text {
+    flex-basis: 45%;
+}
+
+.hero .container .text p {
+    font-size: 18px;
+    font-family: "Bebas Neue", Sans-serif;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.hero .container .text h1 {
+    font-size: 130px;
+    font-family: "Alfa Slab One", Sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #3d2514;
+}
+
+.hero .container .img {
+    flex-basis: 45%;
+}
+
+.hero .container .img img {
+    width: 500px;
+}
+
+img {
+    float: right;
+  }
+
+  table {
+    height: 900px;
+    width:900px;
+  }
+
+  
+  
+  @media (min-width: 40em) {
+
+  }
+    
+
+  
+  .wrapper-main {
+height:100%;
+width: 100%;
+padding: 100px θ;
+margin: θ auto;
+border: 4px solid ;
+}
+
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+.leftcolumn {
+  float: left;
+  width: 75%;
+  padding-left: 20px;
+}
+.content h1 {
+  font-family: Georgia;
+  font-weight: bold;
+  font-size: 60px;
+  max-width: 1400px;
+  display: inline;
+  background-color: #fcf113;
+  box-shadow: 10px 0 0 #fcf113, -10px 0 0 #fcf113;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+}
+ 
+.content h2 {
+  font-family: Georgia;
+  font-weight: bold;
+  font-size: 60px;
+  max-width: 1400px;
+  display: inline;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(180deg, transparent 65%, #fcf113 0);
+  background-size: 0% 100%;
+  /*transition*/
+  transition: background-size .4s ease;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;  
+}
+ 
+.content h2:hover {
+  background-size: 100% 100%;
+}
+
+body {
+  background-color: lightblue;}
+
+
+p {
+  line-height: 2.5;}
+
+/* Removed invalid HTML and <style> block. Place only CSS rules in this file. */
